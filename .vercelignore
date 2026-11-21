@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.env
+.env.*
+qa
+tests
+assets/source
+content/original-site-capture.json
+content/migration-report.json
+content/brief-reconciliation.json
+migrations
+README.md
+DESIGN.md

@@ -1,0 +1,19 @@
+# Dependencies and generated output
+node_modules/
+dist/
+
+# Local and platform credentials
+.env
+.env.*
+!.env.example
+.vercel/
+
+# Internal captures, verification evidence and operational notes
+qa/
+assets/source/
+content/original-site-capture.json
+content/migration-report.json
+content/brief-reconciliation.json
+DEPLOYMENT_STATUS.json
+DEPLOYMENT_STATUS.md
+DESIGN.md

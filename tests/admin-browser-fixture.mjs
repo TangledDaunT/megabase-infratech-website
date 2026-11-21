@@ -1,0 +1,7 @@
+import {createSiteServer} from '../scripts/serve.mjs';
+import {hashPassword} from '../server/admin-auth.js';
+const rows=[{submission_id:'221a9975-cc26-46ed-b418-953eb5a894bb',received_at:'2026-11-12T11:58:22.362Z',name:'TEST ONLY - Local dashboard preview',whatsapp:'+919876543210',city:'Not collected',answers:{type:'home',plot:'owned',location:'noida',size:'100to200',detail:'g2',budget:'50to100',timeline:'1to3',concerns:['quality'],map:'help'},answer_labels:{type:'Apna ghar',plot:'Plot mera hai, khaali hai',location:'Noida',size:'100–200 gaz',detail:'G+2',budget:'₹50 lakh – ₹1 crore',timeline:'1–3 mahine mein',concerns:'Material ki quality',map:'Nahi, help chahiye'},match_score:'0.90',score_breakdown:'Plot ready: 40/40; Start timeline: 30/40; Budget: 20/20. 2026-11-07-approved',consent_text:'I agree to the terms and conditions.',terms_version:'2026-11-10'}];
+const config={passwordHash:await hashPassword('Local-dashboard-preview-only'),sessionSecret:'local-dashboard-preview-only-session-secret-12345'};
+const store={configured:()=>true,list:async({q='',page=1})=>{const filtered=rows.filter(row=>JSON.stringify(row).toLowerCase().includes(q.toLowerCase()));return {rows:filtered,total:filtered.length,page:1,pageSize:50};},get:async id=>rows.find(row=>row.submission_id===id),async *export(){yield rows;}};
+const server=createSiteServer({configured:()=>false,admin:{store,config:()=>config,secure:false}});
+server.listen(4182,'127.0.0.1',()=>console.log('Local admin fixture: http://127.0.0.1:4182/admin/ (synthetic data only)'));
