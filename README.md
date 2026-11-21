@@ -1,5 +1,7 @@
 # Megabase Infratech website
 
+[![Verify website](https://github.com/TangledDaunT/megabase-infratech-website/actions/workflows/ci.yml/badge.svg)](https://github.com/TangledDaunT/megabase-infratech-website/actions/workflows/ci.yml)
+
 The source for the Megabase Infratech marketing website. It combines a
 construction-planning quiz, construction-service information, the Bhumi
 Residency project page, buyer enquiries and a private lead dashboard.
